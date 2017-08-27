@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block body%}
+
+<body>
+<h2>Other Family History</h2>
+<hr>
+
+<table class="table table-hover table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>Patient</th>
+        <th>Jewish ancestry</th>
+        <th>BRCA1_BRCA2_TP53</th>
+        <th>Childhood adrenal carcinomas relative</th>
+        <th>Glioma relative</th>
+        <th>Multiple cancers at a young age relative</th>
+        <th>Sarcoma diagnosed less than 45 years relative</th>
+    </tr>
+    </thead>
+    {% for result in results %}
+    <tr>
+        {% set PatientURI = result["Patient"]["value"] %}
+        {% set Psplit = PatientURI.split('#') %}
+        <td>{{Psplit[1]}}</td>
+        <td>{{result["Jewish_ancestry"]["value"]}}</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+</body>
+
+
+{% endblock%}

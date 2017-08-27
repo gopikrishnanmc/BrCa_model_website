@@ -1,0 +1,49 @@
+{%extends "base.html"%}
+{% block content%}
+
+<div class="container">
+    <h1>Relatives of {{patientID}} </h1>
+        <a href="/">Home</a>
+    <hr>
+<table class="table table-hover table-responsive table-bordered">
+        <thead class="thead-default">
+        <tr>
+            <th>Relative ID</th>
+            <th>Sex</th>
+            <th>Family</th>
+            <th>Father</th>
+            <th>Mother</th>
+            <th>Age At Death</th>
+            <th>Breast Ca Status</th>
+        </tr>
+        </thead>
+        {% for result in results %}
+        <tr>
+            {% set PatientURI = result["Relative"]["value"] %}
+            {% set Psplit = PatientURI.split('#') %}
+            <td>{{Psplit[1]}}</td>
+
+            {% set sexURI = result["Sex"]["value"] %}
+            {% set sexSplit = sexURI.split('#') %}
+            <td>{{sexSplit[1]}}</td>
+
+            {% set FamilyURI = result["FamilyID1"]["value"] %}
+            {% set Famsplit = FamilyURI.split('#') %}
+            <td>{{Famsplit[1]}}</td>
+
+            {% set FatherURI = result["Father"]["value"] %}
+            {% set Fsplit = FatherURI.split('#') %}
+            <td>{{Fsplit[1]}}</td>
+
+            {% set MotherURI = result["Mother"]["value"]%}
+            {% set Msplit = MotherURI.split('#') %}
+            <td>{{Msplit[1]}}</td>
+
+            <td>{{result["AgeAtDeath"]["value"]}}</td>
+            <td>{{result["RelativeBreastCancer"]["value"]}}</td>
+        </tr>
+        {%endfor%}
+</table>
+</div>
+{% endblock %}
+

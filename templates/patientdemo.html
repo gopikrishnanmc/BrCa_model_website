@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% block body%}
+
+<body>
+<h2>Patient Demographics</h2>
+<hr>
+
+<table class="table table-hover table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>Patient</th>
+        <th>Sex</th>
+        <th>Date of Birth</th>
+    </tr>
+    </thead>
+    {% for result in results %}
+    <tr>
+        {% set PatientURI = result["Patient"]["value"] %}
+        {% set Psplit = PatientURI.split('#') %}
+        <td>{{Psplit[1]}}</td>
+
+        {% set sexURI = result["Sex"]["value"] %}
+        {% set sexSplit = sexURI.split('#') %}
+        <td>{{sexSplit[1]}}</td>
+
+        <td>{{result["DateOfBirth"]["value"]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+</body>
+
+{% endblock%}

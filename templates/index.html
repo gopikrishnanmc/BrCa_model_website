@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+    <title>BrCa-Nottingham</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">BrCa Family Risk</a>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+</header>
+
+<body>
+
+<div class="container">
+
+    <div class="container">
+        <h2 class="form-signin-heading">Enter Patient ID </h2>
+        <hr>
+        <form class="navbar-form navbar-left" method="post" action="/patient-demo/">
+            <div class="form-group">
+                <label for="inputName1" class="sr-only">Patient ID</label>
+                <input type="text" id="inputName1" name="patientID1" class="form-control" placeholder="Patient ID"
+                       required autofocus>
+            </div>
+            <button class="btn btn-default" type="submit">Get Patient Demographics</button>
+        </form>
+    </div>
+
+
+    <div class="container">
+        <hr>
+        <form class="navbar-form navbar-left" method="post" action="/patient-history/">
+            <div class="form-group">
+                <label for="inputName2" class="sr-only">Patient ID</label>
+                <input type="text" id="inputName2" name="patientID2" class="form-control" placeholder="Patient ID"
+                       required autofocus>
+            </div>
+            <button class="btn btn-default" type="submit">Get Patient History</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <hr>
+        <form class="navbar-form navbar-left" method="post" action="/relative-cancer/">
+            <div class="form-group">
+                <label for="inputName2" class="sr-only">Patient ID</label>
+                <input type="text" id="inputName4" name="patientID4" class="form-control" placeholder="Patient ID"
+                       required autofocus>
+            </div>
+            <button class="btn btn-default" type="submit">Get Relative Information</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <hr>
+        <form class="navbar-form navbar-left" method="post" action="/other-family/">
+            <div class="form-group">
+                <label for="inputName2" class="sr-only">Patient ID</label>
+                <input type="text" id="inputName3" name="patientID3" class="form-control" placeholder="Patient ID"
+                       required autofocus>
+            </div>
+            <button class="btn btn-default" type="submit">Get Other Family History</button>
+        </form>
+    </div>
+
+
+    <hr>
+    <div class="well well-lg">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+
+
+</html>

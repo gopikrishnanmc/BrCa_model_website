@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block body%}
+
+<body>
+<h2>Relative Cancer Information</h2>
+<hr>
+
+<table class="table table-hover table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>Patient</th>
+        <th>Personal history of breast cancer</th>
+    </tr>
+    </thead>
+    <tr>
+        {% set PatientURI = result["Patient"]["value"] %}
+        {% set Psplit = PatientURI.split('#') %}
+        <td>{{Psplit[1]}}</td>
+
+        <td>{{result["Personal_history_of_breast_cancer"]["value"]}}</td>
+    </tr>
+</table>
+
+</body>
+
+
+{% endblock%}
